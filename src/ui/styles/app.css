@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body {
+  background: #f6f4f0;
+  color: #181616;
+  font-family: Roboto, sans-serif;
+}
+
+.welcome {
+  text-align: center;
+}
