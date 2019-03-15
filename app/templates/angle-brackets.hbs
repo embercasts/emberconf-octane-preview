@@ -1,0 +1,7 @@
+{{#ui-button color="primary" error=this.hasError test-selector="user-submit" type="submit"}}Submit{{/ui-button}}
+<button class="btn btn--primary btn--error" type="submit" data-test-btn="user-submit">Submit</button>
+
+<UiButton @type="submit" class="btn--primary {{if this.hasError "btn--error"}}">Submit</UiButton>
+
+{{forms/user-form completed=(action "afterSubmit")}}
+<Forms::UserForm @completed={{action "afterSubmit"}} />

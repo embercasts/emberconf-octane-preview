@@ -4,4 +4,4 @@ export default class AddNumbersComponent extends Component {
 
 }
 
-AddNumbersComponent.positionalParams = ['label'];
+AddNumbersComponent.positionalParams = ['title'];
