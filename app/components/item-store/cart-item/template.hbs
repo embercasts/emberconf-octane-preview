@@ -1,0 +1,6 @@
+<li>
+  <p>
+    {{@item.item.name}} - <strong>{{format-currency @item.price}}</strong>
+    <button onclick={{action @onChangeQuantity @item -1}}>-</button>x{{@item.quantity}}<button onclick={{action @onChangeQuantity @item 1}}>+</button>
+  </p>
+</li>

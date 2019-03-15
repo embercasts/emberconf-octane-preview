@@ -1,0 +1,33 @@
+<div ...attributes class="item-store">
+  <section>
+    <h1>Store</h1>
+
+    <ul class="available-items">
+      {{#each this.availableItems as |item|}}
+        <ItemStore::Item @item={{item}} @onAddToCart={{action this.addToCart}} />
+      {{/each}}
+    </ul>
+  </section>
+
+  <section>
+    <h2>Cart</h2>
+
+    <ul class="cart-items">
+      {{#each this.cart.items as |item|}}
+        <ItemStore::CartItem @item={{item}} @onChangeQuantity={{action this.changeItemQuantity}} />
+      {{/each}}
+
+      {{#if this.cart.numberOfItems}}
+        <li class="total">
+          <p>Sub Total: <strong>{{format-currency this.cart.subTotal}}</strong></p>
+        </li>
+        <li class="discount">
+          <p>Discount: <strong>-{{format-currency this.cart.discount}}</strong></p>
+        </li>
+        <li class="total">
+          <p>Total: <strong>{{format-currency this.cart.total}}</strong></p>
+        </li>
+      {{/if}}
+    </ul>
+  </section>
+</div>
