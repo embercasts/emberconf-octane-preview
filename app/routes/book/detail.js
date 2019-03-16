@@ -5,6 +5,8 @@ export default Route.extend({
   book: service('book'),
 
   model({ id }) {
-    return this.book.find(id);
+    return this.store.findRecord('book', id, {
+      include: 'ratings'
+    });
   }
 });
