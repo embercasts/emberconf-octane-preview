@@ -1,0 +1,53 @@
+<div class="slide-out">
+  <div class="slide-out-card">
+    <div class="slide-out-heading">
+      <div class="title">
+        <h3>Register</h3>
+      </div>
+    </div>
+
+    <div class="slide-out-content">
+      <form onsubmit={{action "saveUser"}}>
+        <div class="field">
+          <label>Email:</label>
+          {{input type="text" placeholder="Email" value=email}}
+
+          {{#each errors.email as |error|}}
+            <span class="error-message">{{error.message}}</span>
+          {{/each}}
+        </div>
+
+        <div class="field">
+          <label>Username:</label>
+          {{input type="text" placeholder="Username" value=username}}
+
+          {{#each errors.username as |error|}}
+            <span class="error-message">{{error.message}}</span>
+          {{/each}}
+        </div>
+
+        <div class="field">
+          <label>Password:</label>
+          {{input type="password" placeholder="Password" value=password}}
+
+          {{#each errors.password as |error|}}
+            <span class="error-message">{{error.message}}</span>
+          {{/each}}
+        </div>
+
+        <div class="field">
+          <label>Confirm Password:</label>
+          {{input type="password" placeholder="Confirm Password" value=passwordConfirmation}}
+
+          {{#each errors.passwordConfirmation as |error|}}
+            <span class="error-message">{{error.message}}</span>
+          {{/each}}
+        </div>
+
+        <div class="form-footer">
+          <button type="submit" class="btn-submit">save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

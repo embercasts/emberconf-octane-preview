@@ -6,8 +6,7 @@
         <g id="Desktop-HD---Index" transform="translate(-56.000000, -48.000000)">
             <g id="Logo" transform="translate(56.000000, 48.000000)">
                 <text id="Ember-Library" font-family="Arial-BoldMT, Arial" font-size="18" font-weight="bold" letter-spacing="-0.375" fill="#432B4F">
-                    <tspan x="58" y="28">Ember Librar</tspan>
-                    <tspan x="165.53418" y="28" letter-spacing="-0.28125">y</tspan>
+                    <tspan x="58" y="28">Bookstore</tspan>
                 </text>
                 <polygon id="Rectangle" fill="#A85795" points="14 9 49.9632664 0.667109065 39 33 0.833876821 43.806362"></polygon>
                 <rect id="Rectangle-Copy" fill="#79D4D3" style="mix-blend-mode: darken;" x="20" y="15" width="25" height="24"></rect>

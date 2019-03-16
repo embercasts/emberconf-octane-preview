@@ -1,0 +1,30 @@
+<div class="slide-out">
+  <div class="slide-out-card">
+    <div class="slide-out-heading">
+      <div class="title">
+        <h3>Login</h3>
+      </div>
+    </div>
+
+    <div class="slide-out-content">
+      <form onsubmit={{action "login"}}>
+        {{#each errors as |error|}}
+          <div class="error-alert">{{error.detail}}</div>
+        {{/each}}
+        <div class="field">
+          <label>Email:</label>
+          {{input type="text" placeholder="Email" value=email}}
+        </div>
+
+        <div class="field">
+          <label>Password:</label>
+          {{input type="password" placeholder="Password" value=password}}
+        </div>
+
+        <div class="form-footer">
+          <button type="submit" class="btn-submit">save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
