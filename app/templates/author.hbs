@@ -1,0 +1,24 @@
+<div class="panel-heading">
+  <div class="search">
+    <input value={{search}} {{action (mut search) on="input" value="target.value"}} />
+    {{input type="text" placeholder="Search by Author Name" value=search}}
+  </div>
+
+  {{#link-to "author.index" class="btn-new"}}
+    <div class="sr-only">Add New Author</div>
+  {{/link-to}}
+</div>
+
+<div class="panel-content">
+  <h3 class="panel-title">Authors</h3>
+
+  <ul class="collection">
+    {{#each model as |author|}}
+      {{author-list-item first=author.first last=author.last authorId=author.id tagName="li"}}
+    {{/each}}
+  </ul>
+</div>
+
+<div class="slide-container">
+  {{outlet}}
+</div>
