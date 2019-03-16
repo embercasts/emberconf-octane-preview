@@ -11,6 +11,12 @@ export default class AuthorRoute extends Route {
   };
 
   model({ search }) {
-    return this.author.findAllOrQuery(search);
+    if (search) {
+      return this.store.query('author', {
+        filter: { query: search }
+      });
+    }
+
+    return this.store.findAll('author');
   }
 }
