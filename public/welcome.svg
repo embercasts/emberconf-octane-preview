@@ -1,0 +1,39 @@
+
+<svg width="525px" height="301px" viewBox="0 0 525 301" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45.1 (43504) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD---Index" transform="translate(-621.000000, -232.000000)">
+            <g id="Steps" transform="translate(621.000000, 232.000000)">
+                <g id="1" transform="translate(0.000000, 87.000000)">
+                    <rect id="Rectangle-2" fill="#EA6D77" x="0" y="0" width="209" height="214" rx="3"></rect>
+                    <text id="Find-books!" font-family="Arial-BoldMT, Arial" font-size="18" font-weight="bold" fill="#FFFFFF">
+                        <tspan x="54.2315538" y="155.425676">Find books!</tspan>
+                    </text>
+                    <text font-family="Arial-BoldMT, Arial" font-size="72" font-weight="bold" fill="#FFFFFF">
+                        <tspan x="87.0833333" y="110.371622">1</tspan>
+                    </text>
+                </g>
+                <g id="2" transform="translate(147.000000, 0.000000)">
+                    <rect id="Rectangle-2-Copy" fill="#B24F96" x="0" y="0" width="209" height="214" rx="3"></rect>
+                    <text font-family="Arial-BoldMT, Arial" font-size="72" font-weight="bold" fill="#FFFFFF">
+                        <tspan x="85.6319444" y="110.371622">2</tspan>
+                    </text>
+                    <text id="Find-authors!" font-family="Arial-BoldMT, Arial" font-size="18" font-weight="bold" fill="#FFFFFF">
+                        <tspan x="48.0948893" y="155.425676">Find authors!</tspan>
+                    </text>
+                </g>
+                <g id="3" transform="translate(316.000000, 47.000000)">
+                    <rect id="Rectangle-2-Copy-2" fill="#432B4F" x="0" y="0" width="209" height="214" rx="3"></rect>
+                    <text font-family="Arial-BoldMT, Arial" font-size="72" font-weight="bold" fill="#FFFFFF">
+                        <tspan x="86.3576389" y="110.371622">3</tspan>
+                    </text>
+                    <text id="Leave-reviews!" font-family="Arial-BoldMT, Arial" font-size="18" font-weight="bold" fill="#FFFFFF">
+                        <tspan x="40.8213433" y="155.425676">Leave reviews!</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

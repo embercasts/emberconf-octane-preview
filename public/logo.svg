@@ -1,0 +1,18 @@
+<svg width="176px" height="44px" viewBox="0 0 176 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45.1 (43504) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD---Index" transform="translate(-56.000000, -48.000000)">
+            <g id="Logo" transform="translate(56.000000, 48.000000)">
+                <text id="Ember-Library" font-family="Arial-BoldMT, Arial" font-size="18" font-weight="bold" letter-spacing="-0.375" fill="#432B4F">
+                    <tspan x="58" y="28">Ember Librar</tspan>
+                    <tspan x="165.53418" y="28" letter-spacing="-0.28125">y</tspan>
+                </text>
+                <polygon id="Rectangle" fill="#A85795" points="14 9 49.9632664 0.667109065 39 33 0.833876821 43.806362"></polygon>
+                <rect id="Rectangle-Copy" fill="#79D4D3" style="mix-blend-mode: darken;" x="20" y="15" width="25" height="24"></rect>
+                <rect id="Rectangle-Copy-2" fill="#D47979" style="mix-blend-mode: darken;" x="4" y="0" width="25" height="24"></rect>
+            </g>
+        </g>
+    </g>
+</svg>
