@@ -17,6 +17,7 @@ export default Component.extend({
 
   actions: {
     searchAuthor(query) {
+      debugger;
       return this.get('store').query('author', { filter: { query }});
     },
 

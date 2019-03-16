@@ -6,7 +6,9 @@ export default Controller.extend({
 
   actions: {
     saveAuthor() {
-      this.author.create(this.model)
+      let author = this.store.createRecord('author', this.model);
+
+      author.save()
         .then(() => {
           this.transitionToRoute('author');
         });

@@ -1,6 +1,7 @@
 import DS from 'ember-data';
-const { Model } = DS;
+const { Model, attr } = DS;
 
-export default class RatingModel extends Model {
-
-}
+export default Model.extend({
+  value: attr(),
+  username: attr(),
+});

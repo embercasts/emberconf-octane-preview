@@ -6,7 +6,7 @@ export default Route.extend({
 
   model({ id }) {
     return this.store.findRecord('book', id, {
-      include: 'ratings'
+      include: 'ratings,author'
     });
   }
 });

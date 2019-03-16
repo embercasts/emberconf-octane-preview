@@ -5,9 +5,9 @@ export default Controller.extend({
   author: service('author'),
   actions: {
     saveAuthor(updates) {
-      let id = this.get('model.id');
+      this.model.setProperties(updates);
 
-      this.author.update(id, updates)
+      this.model.save()
         .then(() => {
           this.transitionToRoute('author');
         });
