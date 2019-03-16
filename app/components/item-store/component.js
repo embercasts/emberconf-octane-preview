@@ -11,7 +11,7 @@ export default class ItemStore extends Component {
   constructor() {
     super(...arguments);
 
-    this.cart = Cart.create();
+    this.cart = new Cart();
     this.availableItems = items;
   }
 

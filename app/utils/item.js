@@ -1,27 +1,18 @@
-import EmberObject from '@ember/object';
+class Item {
+  name = '';
+  price = 0;
 
-const Item = EmberObject.extend({
-  name: '',
-  price: 0
-});
+  constructor(name, price) {
+    this.name = name;
+    this.price = price;
+  }
+}
 
 export const items = [
-  Item.create({
-    name: 'Ice Cream',
-    price: 2.10
-  }),
-  Item.create({
-    name: 'Zoey Mascot Plush',
-    price: 10.10
-  }),
-  Item.create({
-    name: 'Ember Hoody',
-    price: 55.20
-  }),
-  Item.create({
-    name: 'Ember Sticker Pack',
-    price: 6.00
-  }),
+  new Item('Ice Cream', 2.10),
+  new Item('Zoey Mascot Plush', 10.10),
+  new Item('Ember Hoody', 55.20),
+  new Item('Ember Sticker Pack', 6.00),
 ];
 
 export default Item;

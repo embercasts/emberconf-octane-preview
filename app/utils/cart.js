@@ -1,40 +1,47 @@
-import EmberObject, { computed } from '@ember/object';
-import { A } from '@ember/array';
+import { tracked } from '@glimmer/tracking';
 
-export default EmberObject.extend({
-  itemDiscountMultiplier: 0.01,
+class CartItem {
+  @tracked price;
+  @tracked quantity = 1;
+  @tracked item;
 
-  init() {
-    this.set('items', A([]));
-  },
+  constructor(item) {
+    this.item = item;
+    this.price = item.price;
+  }
+
+  changeQuantity(amount) {
+    this.quantity += amount;
+  }
+}
+
+export default class Cart {
+  itemDiscountMultiplier = 0.01;
+  @tracked items = [];
 
   addItem(item) {
-    this.items.addObject(EmberObject.create({
-      item,
-      price: item.price,
-      quantity: 1
-    }));
-  },
+    this.items = [...this.items, new CartItem(item)];
+  }
 
   changeItemQuantity(item, amount) {
-    let itemToChange = this.get('items').find(a => a === item);
+    let itemToChange = this.items.find(a => a === item);
 
-    itemToChange.set('quantity', itemToChange.get('quantity') + amount);
-  },
+    itemToChange.changeQuantity(amount);
+  }
 
-  subTotal: computed('items.@each.{quantity,price}', function() {
-    return this.get('items').reduce((sum, item) => sum + item.get('price') * item.get('quantity'), 0);
-  }),
+  get subTotal() {
+    return this.items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  }
 
-  numberOfItems: computed('items.[]', function() {
-    return this.get('items').length;
-  }),
+  get numberOfItems() {
+    return this.items.length;
+  }
 
-  discount: computed('numberOfItems', 'subTotal', function() {
-    return this.get('subTotal') * this.get('itemDiscountMultiplier') * this.get('numberOfItems');
-  }),
+  get discount() {
+    return this.subTotal * this.itemDiscountMultiplier * this.numberOfItems;
+  }
 
-  total: computed('discount', 'subTotal', function() {
-    return this.get('subTotal') - this.get('discount');
-  })
-});
+  get total() {
+    return this.subTotal - this.discount;
+  }
+}
