@@ -1,39 +1,52 @@
 'use strict';
 const data = require('../data');
-const { authors, books } = data;
+const { Book } = data;
 
 module.exports = function(app) {
   const express = require('express');
-  let authorRouter = express.Router();
+  let bookRouter = express.Router();
 
-  authorRouter.get('/', function(req, res) {
-    res.send(
-      [
-        ...books
-      ]
-    );
+  bookRouter.get('/', async function(req, res) {
+    try {
+      let books = await Book.fetchAll({ withRelated: ['author'] });
+
+      res.send(
+        books.toJSON()
+      );
+    } catch(e) {
+      res.send(e);
+    }
   });
 
-  authorRouter.post('/', function(req, res) {
-    res.status(201).end();
+  bookRouter.post('/', async function(req, res) {
+    let book = new Book(req.body);
+    await book.save();
+
+    res.status(201).send(book.toJSON());
   });
 
-  authorRouter.get('/:id', function(req, res) {
-    let book = books.find(a => a.id == req.params.id);
+  bookRouter.get('/:id', async function(req, res) {
+    let book = await Book.where({ id: req.params.id })
+      .fetch({ withRelated: ['author'] });
 
-    res.send({
-      ...book,
-      author: authors.find(a => a.id == book['author-id'])
-    });
+    res.send(book.toJSON());
   });
 
-  authorRouter.put('/:id', function(req, res) {
-    res.send({
-      id: req.params.id
-    });
+  bookRouter.put('/:id', async function(req, res) {
+    let book = await Book.where({ id: req.params.id })
+      .fetch({ withRelated: ['author'] });
+
+    book.set(req.body);
+    await book.save();
+
+    res.send(book.toJSON());
   });
 
-  authorRouter.delete('/:id', function(req, res) {
+  bookRouter.delete('/:id', async function(req, res) {
+    let book = await Book.where({ id: req.params.id })
+      .fetch({ withRelated: ['author'] });
+    await book.destroy();
+
     res.status(204).end();
   });
 
@@ -47,5 +60,5 @@ module.exports = function(app) {
   // this mock uncommenting the following line:
   //
   app.use('/api/books', require('body-parser').json());
-  app.use('/api/books', authorRouter);
+  app.use('/api/books', bookRouter);
 };

@@ -1,37 +1,52 @@
 'use strict';
 const data = require('../data');
-const { authors, books } = data;
+const { Author } = data;
 
 module.exports = function(app) {
   const express = require('express');
   let authorRouter = express.Router();
 
-  authorRouter.get('/', function(req, res) {
-    res.send(
-      [
-        ...authors
-      ]
-    );
+  authorRouter.get('/', async function(req, res) {
+    try {
+      let authors = await Author.fetchAll({ withRelated: ['books'] });
+
+      res.send(
+        authors.toJSON()
+      );
+    } catch(e) {
+      res.send(e);
+    }
   });
 
-  authorRouter.post('/', function(req, res) {
-    res.status(201).end();
+  authorRouter.post('/', async function(req, res) {
+    let author = new Author(req.body);
+    await author.save();
+
+    res.status(201).send(author.toJSON());
   });
 
-  authorRouter.get('/:id', function(req, res) {
-    res.send({
-      ...authors.find(a => a.id == req.params.id),
-      books: books.filter(b => b["author-id"] == req.params.id)
-    });
+  authorRouter.get('/:id', async function(req, res) {
+    let author = await Author.where({ id: req.params.id })
+      .fetch({ withRelated: ['books'] });
+
+    res.send(author.toJSON());
   });
 
-  authorRouter.put('/:id', function(req, res) {
-    res.send({
-      id: req.params.id
-    });
+  authorRouter.put('/:id', async function(req, res) {
+    let author = await Author.where({ id: req.params.id })
+      .fetch({ withRelated: ['books'] });
+
+    author.set(req.body);
+    await author.save();
+
+    res.send(author.toJSON());
   });
 
-  authorRouter.delete('/:id', function(req, res) {
+  authorRouter.delete('/:id', async function(req, res) {
+    let author = await Author.where({ id: req.params.id })
+      .fetch({ withRelated: ['books'] });
+    await author.destroy();
+
     res.status(204).end();
   });
 
