@@ -1,8 +1,8 @@
-<button type="button" class="btn-trigger" onclick={{action (mut showModal) true}}>Add a New Author</button>
+<button type="button" class="btn-trigger" {{action (mut showModal) true on="click"}}>Add a New Author</button>
 
 {{#liquid-if showModal class="modal-if"}}
   <div class="modal">
-    <form class="modal-card" onsubmit={{action "save"}}>
+    <form class="modal-card" {{action "save" on="submit"}}>
       <h3 class="modal-heading">Add New Author For Book</h3>
 
       <div class="modal-content">
@@ -17,7 +17,7 @@
       </div>
 
       <div class="modal-footer">
-        <button type="button" class="btn-clear" onclick={{action (mut showModal) false}}>Cancel</button>
+        <button type="button" class="btn-clear" {{action (mut showModal) false on="click"}}>Cancel</button>
         <button type="submit" class="btn-submit">Submit</button>
       </div>
     </form>

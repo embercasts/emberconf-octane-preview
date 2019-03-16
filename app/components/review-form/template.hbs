@@ -1,4 +1,4 @@
-<form onsubmit={{action "submitChanges"}}>
+<form {{action "submitChanges" on="submit"}}>
   <div class="field">
     <label>Write Your Review</label>
     {{textarea type="text" placeholder="Review Text" value=body}}

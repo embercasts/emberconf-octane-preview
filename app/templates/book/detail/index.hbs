@@ -1,0 +1,26 @@
+<div class="slide-out-content">
+  <div class="title">
+    <h3>{{model.reviews.length}} Reviews</h3>
+
+    <div class="actions">
+      {{#if (can "create review")}}
+        {{#link-to "book.detail.new-review" model.id class="btn-secondary btn-add btn"}}
+          Add your review
+        {{/link-to}}
+      {{/if}}
+    </div>
+  </div>
+
+  <ul class="review-list">
+    {{#each model.reviews as |review|}}
+      <li class="review">
+        <p>{{review.body}}</p>
+
+        <div class="details">
+          <p class="review-user">{{review.username}}</p>
+          <p class="review-time">{{moment-from-now review.createdAt}}</p>
+        </div>
+      </li>
+    {{/each}}
+  </ul>
+</div>

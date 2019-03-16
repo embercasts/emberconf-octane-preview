@@ -7,7 +7,7 @@
     </div>
 
     <div class="slide-out-content">
-      <form onsubmit={{action "login"}}>
+      <form {{action "login" on="submit"}}>
         {{#each errors as |error|}}
           <div class="error-alert">{{error.detail}}</div>
         {{/each}}

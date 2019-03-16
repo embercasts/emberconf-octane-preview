@@ -1,10 +1,12 @@
 import Controller from '@ember/controller';
-import { post } from 'emberconf-preview/utils/fetch';
+import { inject as service } from '@ember/service';
 
 export default Controller.extend({
+  author: service('author'),
+
   actions: {
     saveAuthor() {
-      post('/api/authors', this.model)
+      this.author.create(this.model)
         .then(() => {
           this.transitionToRoute('author');
         });
