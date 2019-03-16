@@ -33,18 +33,24 @@ module.exports = function(app) {
   });
 
   authorRouter.put('/:id', async function(req, res) {
-    let author = await Author.where({ id: req.params.id })
-      .fetch({ withRelated: ['books'] });
+    try {
+      let attrs = { ...req.body };
+      delete attrs.books;
 
-    author.set(req.body);
-    await author.save();
+      let author = await Author.where({ id: req.params.id }).fetch({ withRelated: ['books'] });
 
-    res.send(author.toJSON());
+      author.set(attrs);
+      await author.save();
+
+      res.send(author.toJSON());
+    } catch (error) {
+      console.log(error);
+      res.status(500).send(error);
+    }
   });
 
   authorRouter.delete('/:id', async function(req, res) {
-    let author = await Author.where({ id: req.params.id })
-      .fetch({ withRelated: ['books'] });
+    let author = await Author.where({ id: req.params.id });
     await author.destroy();
 
     res.status(204).end();
