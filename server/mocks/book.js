@@ -8,7 +8,7 @@ module.exports = function(app) {
 
   bookRouter.get('/', async function(req, res) {
     try {
-      let books = await Book.fetchAll({ withRelated: ['author'] });
+      let books = await Book.fetchAll({ withRelated: ['author', 'ratings'] });
 
       res.send(
         books.toJSON()
@@ -27,7 +27,7 @@ module.exports = function(app) {
 
   bookRouter.get('/:id', async function(req, res) {
     let book = await Book.where({ id: req.params.id })
-      .fetch({ withRelated: ['author'] });
+      .fetch({ withRelated: ['author', 'ratings'] });
 
     res.send(book.toJSON());
   });
@@ -37,7 +37,7 @@ module.exports = function(app) {
       let attrs = { ...req.body };
       delete attrs.author;
 
-      let book = await Book.where({ id: req.params.id }).fetch({ withRelated: ['author'] });
+      let book = await Book.where({ id: req.params.id }).fetch({ withRelated: ['author', 'ratings'] });
 
       book.set(attrs);
       await book.save();

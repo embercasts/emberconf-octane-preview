@@ -15,7 +15,17 @@ models.Book = bookshelf.Model.extend({
   tableName: 'books',
   author: function() {
     return this.belongsTo(models.Author);
+  },
+  ratings: function() {
+    return this.hasMany(models.Rating);
   }
+});
+
+models.Rating = bookshelf.Model.extend({
+  tableName: 'ratings',
+  book: function() {
+    return this.belongsTo(models.Book);
+  },
 });
 
 module.exports = {

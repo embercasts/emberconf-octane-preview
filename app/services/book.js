@@ -1,5 +1,7 @@
 import Service from '@ember/service';
 import { get, post, put, del } from 'emberconf-preview/utils/fetch';
+import Book from '../data/book';
+
 
 export default Service.extend({
   url: '/api/books',
@@ -11,19 +13,21 @@ export default Service.extend({
       url = `${url}?filter[query]=${search}`;
     }
 
-    return get(url);
+    return get(url).then(b => b.map(a => Book.create(a)));
   },
 
   find(id) {
-    return get(`${this.url}/${id}`);
+    return get(`${this.url}/${id}`).then(b => Book.create(b));
   },
 
   create(data) {
-    return post(this.url, data);
+    return post(this.url, data)
+      .then(b => Book.create(b));
   },
 
   update(id, data) {
-    return put(`${this.url}/${id}`, data);
+    return put(`${this.url}/${id}`, data)
+      .then(b => Book.create(b));
   },
 
   destroy(id) {
