@@ -16,8 +16,14 @@ export default Component.extend({
   },
 
   actions: {
+    changeAuthor(id) {
+      let author = this.get('authors').find(a => a.id == id);
+
+      this.set('author', author);
+    },
+
     searchAuthor(query) {
-      debugger;
+
       return this.get('store').query('author', { filter: { query }});
     },
 

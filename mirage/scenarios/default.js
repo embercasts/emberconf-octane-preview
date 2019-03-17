@@ -1,18 +1,14 @@
 import faker from 'faker';
+import data from '../data';
 
 export default function(server) {
-
   /*
     Seed your development database using your factories.
     This data will not be loaded in your tests.
   */
 
-  let authors = server.createList('author', 10);
-  let bookGroups = authors.map(author => {
-    return server.createList('book', 3, { author });
-  });
+  data.authors.map(author => server.create('author', author));
+  let books = data.books.map(book => server.create('book', book));
 
-  let ratings = bookGroups.map(books => {
-    books.map(book => server.createList('rating', 4, { book }));
-  });
+  let ratings = books.map(book => server.createList('rating', faker.random.number({ min: 2, max: 10 }), { book }));
 }

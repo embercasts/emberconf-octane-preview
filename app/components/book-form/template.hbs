@@ -17,9 +17,12 @@
   <div class="field">
     <label>Author:</label>
     <p class="control">
-      {{!-- {{#power-select onchange=(action (mut author)) selected=author search=(action "searchAuthor") as |author|}}
-        {{author.last}}, {{author.first}}
-      {{/power-select}} --}}
+      <select onchange={{action "changeAuthor" on="change" value="target.value"}}>
+        <option>Select Author</option>
+        {{#each authors as |authorOption|}}
+          <option selected={{eq authorOption author}} value={{authorOption.id}}>{{authorOption.last}}, {{authorOption.first}}</option>
+        {{/each}}
+      </select>
     </p>
   </div>
 

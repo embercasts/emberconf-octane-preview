@@ -1,70 +1,59 @@
-module.exports = {
+export default {
   authors: [
     {
       "id": "1",
       "first": "J.K.",
-      "last": "Rowling",
-      "username": "ryan"
+      "last": "Rowling"
     },
     {
       "id": "2",
       "first": "Mark",
-      "last": "Twain",
-      "username": "tomster"
+      "last": "Twain"
     },
     {
       "id": "3",
       "first": "Ernest",
-      "last": "Hemingway",
-      "username": "admin"
+      "last": "Hemingway"
     },
     {
       "id": "4",
       "first": "Jane",
-      "last": "Austen",
-      "username": "bookworm"
+      "last": "Austen"
     },
     {
       "id": "5",
       "first": "Charles",
-      "last": "Dickens",
-      "username": "bookworm"
+      "last": "Dickens"
     },
     {
       "id": "6",
       "first": "Virginia",
-      "last": "Woolf",
-      "username": "ryan"
+      "last": "Woolf"
     },
     {
       "id": "7",
       "first": "William",
-      "last": "Shakespeare",
-      "username": "guitarfan"
+      "last": "Shakespeare"
     },
     {
       "id": "8",
       "first": "Tom",
-      "last": "Clancy",
-      "username": "tomster"
+      "last": "Clancy"
     },
     {
       "id": "9",
       "first": "Clive",
-      "last": "Cussler",
-      "username": "bookworm"
+      "last": "Cussler"
     },
     {
       "id": "10",
       "first": "Dan",
-      "last": "Brown",
-      "username": "ryan"
+      "last": "Brown"
     },
     {
       "id": "11",
       "first": "Neil",
-      "last": "Gaiman",
-      "username": "tomster"
+      "last": "Gaiman"
     }
   ],
   books: [
@@ -72,145 +61,113 @@ module.exports = {
       "id": "1",
       "title": "For Whom The Bell Tolls",
       "isbn": "12345678",
-      "publish-date": "1940-10-21",
-      "username": "tomster",
-      "author_id": "1"
-    },
-    {
-      "id": "2",
-      "title": "Harry Potter and the Camber of Secrets",
-      "isbn": "0439064872",
-      "publish-date": "2000-07-02",
-      "username": "guitarfan",
-      "author_id": "1"
+      "publishDate": "1940-10-21",
+      "authorId": "3"
     },
     {
       "id": "3",
       "title": "Sahara",
       "isbn": "0-671-68155-9",
-      "publish-date": "1992-06-01",
-      "username": "admin",
-      "author_id": "1"
+      "publishDate": "1992-06-01",
+      "authorId": "9"
     },
     {
       "id": "4",
       "title": "Clear and Present Danger",
       "isbn": "0-399-13440-9",
-      "publish-date": "1989-08-01",
-      "username": "ryan",
-      "author_id": "1"
+      "publishDate": "1989-08-01",
+      "authorId": "8"
     },
     {
       "id": "5",
       "title": "Harry Potter and the Philosopher's Stone",
       "isbn": "9780747532743",
-      "publish-date": "2018-04-09",
-      "username": "ryan",
-      "author_id": "1"
+      "publishDate": "2018-04-09",
+      "authorId": "1"
     },
     {
       "id": "6",
       "title": "Harry Potter and the Chamber of Secrets",
       "isbn": "9780747538486",
-      "publish-date": "2018-04-09",
-      "username": "ryan",
-      "author_id": "1"
+      "publishDate": "2018-04-09",
+      "authorId": "1"
     },
     {
       "id": "7",
       "title": "Harry Potter and the Order of the Phoenix",
       "isbn": "9780747551003",
-      "publish-date": "2018-04-09",
-      "username": "ryan",
-      "author_id": "1"
+      "publishDate": "2018-04-09",
+      "authorId": "1"
     },
     {
       "id": "8",
       "title": "Harry Potter and the Half-blood Prince: Children's Edition",
       "isbn": "9780747581086",
-      "publish-date": "2018-04-09",
-      "username": "ryan",
-      "author_id": "1"
+      "publishDate": "2018-04-09",
+      "authorId": "1"
     },
     {
       "id": "9",
       "title": "Harry Potter and the Deathly Hallows",
       "isbn": "9780747591054",
-      "publish-date": "2018-04-09",
-      "username": "ryan",
-      "author_id": "1"
+      "publishDate": "2018-04-09",
+      "authorId": "1"
     },
     {
       "id": "10",
       "title": "Harry Potter and the Prisoner of Azkaban",
       "isbn": "9780747546290",
-      "publish-date": "2018-04-09",
-      "username": "ryan",
-      "author_id": "1"
+      "publishDate": "2018-04-09",
+      "authorId": "1"
     },
     {
       "id": "11",
       "title": "Harry Potter and the Goblet of Fire",
       "isbn": "9780747550990",
-      "publish-date": "2018-04-09",
-      "username": "ryan",
-      "author_id": "1"
+      "publishDate": "2018-04-09",
+      "authorId": "1"
     },
     {
       "id": "12",
       "title": "The Da Vinci Code",
       "isbn": "9780552149518",
-      "publish-date": "2018-04-09",
-      "username": "ryan",
-      "author_id": "1"
+      "publishDate": "2018-04-09",
+      "authorId": "10"
     },
     {
       "id": "13",
       "title": "Angels and Demons",
       "isbn": "9780552150736",
-      "publish-date": "2018-04-09",
-      "username": "ryan",
-      "author_id": "1"
+      "publishDate": "2018-04-09",
+      "authorId": "1"
     },
     {
       "id": "14",
       "title": "Deception Point",
       "isbn": "9780552151764",
-      "publish-date": "2018-04-09",
-      "username": "ryan",
-      "author_id": "1"
+      "publishDate": "2018-04-09",
+      "authorId": "10"
     },
     {
       "id": "15",
       "title": "Digital Fortress",
       "isbn": "9780552151696",
-      "publish-date": "2018-04-09",
-      "username": "ryan",
-      "author_id": "1"
-    },
-    {
-      "id": "16",
-      "title": "The Lost Symbol",
-      "isbn": "9780593054277",
-      "publish-date": "2018-04-09",
-      "username": "ryan",
-      "author_id": "1"
+      "publishDate": "2018-04-09",
+      "authorId": "10"
     },
     {
       "id": "17",
       "title": "Fantastic Beasts and Where to Find Them",
       "isbn": "978-1338132311",
-      "publish-date": "2001-01-01",
-      "username": "ryan",
-      "author_id": "1"
+      "publishDate": "2001-01-01",
+      "authorId": "1"
     },
     {
       "id": "18",
       "title": "American Gods",
       "isbn": "0-380-97365-0",
-      "publish-date": "2001-05-19",
-      "username": "ryan",
-      "author_id": "1"
+      "publishDate": "2001-05-19",
+      "authorId": "11"
     }
   ]
 };
