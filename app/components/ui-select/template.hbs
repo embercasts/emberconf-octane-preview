@@ -1,0 +1,4 @@
+<option>{{label}}</option>
+{{#each options as |item|}}
+  <option selected={{eq value item}} value={{item.id}}>{{yield item}}</option>
+{{/each}}

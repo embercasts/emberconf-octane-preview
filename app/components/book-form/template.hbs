@@ -17,12 +17,10 @@
   <div class="field">
     <label>Author:</label>
     <p class="control">
-      <select onchange={{action "changeAuthor" on="change" value="target.value"}}>
-        <option>Select Author</option>
-        {{#each authors as |authorOption|}}
-          <option selected={{eq authorOption author}} value={{authorOption.id}}>{{authorOption.last}}, {{authorOption.first}}</option>
-        {{/each}}
-      </select>
+      {{#ui-select label="Select Author" value=author options=authors onchange=(action "changeAuthor") as |authorOption|}}
+        {{authorOption.last}}, {{authorOption.first}}
+      {{/ui-select}}
+
     </p>
   </div>
 

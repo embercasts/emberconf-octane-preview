@@ -6,6 +6,7 @@ export default Model.extend({
   title: attr(),
   isbn: attr(),
   publishDate: attr(),
+  price: attr(),
   username: attr(),
   author: belongsTo(),
   ratings: hasMany(),
@@ -20,6 +21,6 @@ export default Model.extend({
   }),
 
   averageRating: computed('totalRating', 'numberOfRatings', function() {
-    return this.get('totalRating') / this.get('numberOfRatings');
+    return this.get('numberOfRatings') ? this.get('totalRating') / this.get('numberOfRatings') : 0;
   })
 })

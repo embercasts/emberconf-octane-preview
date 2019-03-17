@@ -27,9 +27,7 @@ export default Component.extend({
       return this.get('store').query('author', { filter: { query }});
     },
 
-    submitChanges(ev) {
-      ev.preventDefault();
-
+    submitChanges() {
       this.onsubmit({
         title: this.title,
         isbn: this.isbn,
