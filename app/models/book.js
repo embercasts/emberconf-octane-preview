@@ -2,25 +2,41 @@ import DS from 'ember-data';
 import { computed, get } from '@ember/object';
 const { Model, attr, belongsTo, hasMany } = DS;
 
-export default Model.extend({
-  title: attr(),
-  isbn: attr(),
-  publishDate: attr(),
-  price: attr(),
-  username: attr(),
-  author: belongsTo(),
-  ratings: hasMany(),
+export default class Book extends Model {
+  @attr() title
+  @attr() isbn
+  @attr() publishDate
+  @attr() price
+  @attr() username
+  @belongsTo() author
+  @hasMany() ratings
 
-  totalRating: computed('ratings.@each.value', function() {
+  get someComputedValue() {
+    return this.first + this.last;
+  }
+
+  // get anotherValue() {
+  //   this.someComputedValue;
+  // }
+
+  @computed('ratings.@each.value')
+  get totalRating() {
     return this.get('ratings')
       .reduce((sum, rating) => sum + get(rating, 'value'), 0) ;
-  }),
+  }
 
-  numberOfRatings: computed('ratings.@each.value', function() {
+  // totalRating: computed('ratings.@each.value', function() {
+  //   return this.get('ratings')
+  //     .reduce((sum, rating) => sum + get(rating, 'value'), 0) ;
+  // }),
+
+  @computed('ratings.@each.value')
+  get numberOfRatings() {
     return this.get('ratings.length');
-  }),
+  }
 
-  averageRating: computed('totalRating', 'numberOfRatings', function() {
-    return this.get('numberOfRatings') ? this.get('totalRating') / this.get('numberOfRatings') : 0;
-  })
-})
+  @computed('totalRating', 'numberOfRatings')
+  get averageRating() {
+    return this.numberOfRatings ? this.totalRating / this.numberOfRatings : 0;
+  }
+}

@@ -1,14 +1,13 @@
 import Controller from '@ember/controller';
+import { action } from '@ember/object';
 
-export default Controller.extend({
-  actions: {
-    saveBook(values) {
-      let book = this.store.createRecord('book', values);
+export default class BookCreateController extends Controller {
+  @action
+  async saveBook(values) {
+    let book = this.store.createRecord('book', values);
 
-      book.save()
-        .then(() => {
-          this.transitionToRoute('book');
-        });
-    }
+    let result = await book.save();
+
+    this.transitionToRoute('book');
   }
-});
+}
