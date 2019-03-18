@@ -27,7 +27,6 @@
     "ember-cli": "github:ember-cli/ember-cli#43d540090478166db6971dbb40e90bafc1615eac",
     "ember-cli-app-version": "^3.2.0",
     "ember-cli-babel": "^7.6.0",
-    "ember-cli-dependency-checker": "^3.0.0",
     "ember-cli-eslint": "^5.0.0",
     "ember-cli-htmlbars": "^3.0.0",
     "ember-cli-htmlbars-inline-precompile": "^2.0.0",
