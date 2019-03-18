@@ -4,11 +4,11 @@ import Service from '@ember/service';
 class CartItem {
   @tracked price;
   @tracked quantity = 1;
-  @tracked item;
+  @tracked book;
 
-  constructor(item) {
-    this.item = item;
-    this.price = item.price;
+  constructor(book) {
+    this.book = book;
+    this.price = book.price;
   }
 
   changeQuantity(amount) {
@@ -20,8 +20,13 @@ export default class CartService extends Service {
   itemDiscountMultiplier = 0.01;
   @tracked items = [];
 
-  addItem(item) {
-    this.items = [...this.items, new CartItem(item)];
+  addItem(book) {
+    let existingCartItem = this.items.find(a => a.book === book);
+    if (existingCartItem) {
+      return this.changeItemQuantity(existingCartItem, 1);
+    }
+
+    this.items = [...this.items, new CartItem(book)];
   }
 
   changeItemQuantity(item, amount) {
@@ -35,7 +40,7 @@ export default class CartService extends Service {
   }
 
   get numberOfItems() {
-    return this.items.length;
+    return this.items.reduce((sum, item) => sum + item.quantity, 0);
   }
 
   get discount() {

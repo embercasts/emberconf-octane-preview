@@ -1,0 +1,6 @@
+<li>
+  <p>
+    {{@cartItem.book.title}} - <strong>{{format-currency @cartItem.price}}</strong>
+    <button onclick={{action @onChangeQuantity @cartItem -1}}>-</button>x{{@cartItem.quantity}}<button onclick={{action @onChangeQuantity @cartItem 1}}>+</button>
+  </p>
+</li>

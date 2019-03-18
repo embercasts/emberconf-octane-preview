@@ -1,0 +1,52 @@
+<button
+  class="btn-cart"
+  {{action (mut this.isOpen) true}}
+  {{did-update this.bounce this.cart.numberOfItems}}
+  {{did-update this.brighten this.cart.numberOfItems}}
+>
+  <div class="sr-only">Open Cart</div>
+
+  <div class="count">
+    {{this.cart.numberOfItems}}
+  </div>
+</button>
+
+{{#if this.isOpen}}
+  <div class="slide-out-bg"></div>
+  <div class="slide-out">
+    <div class="slide-out-card">
+      <button class="btn-back" {{action (mut this.isOpen) false}}>
+        <div class="sr-only">Back</div>
+      </button>
+
+      <div class="slide-out-heading">
+        <div class="title">
+          <h3>Cart</h3>
+
+          <div class="actions"></div>
+        </div>
+
+        <div class="details"></div>
+      </div>
+      <div class="slide-out-content">
+        <ul class="review-list">
+          <ul class="cart-list">
+            {{#each this.cart.items as |item|}}
+              <ShoppingCart::CartItem @cartItem={{item}} @onChangeQuantity={{action this.changeItemQuantity}} />
+            {{/each}}
+
+            <li class="total">
+              <p>Sub Total: <strong>{{format-currency this.cart.subTotal}}</strong></p>
+            </li>
+            <li class="discount">
+              <p>Discount: <strong>-{{format-currency this.cart.discount}}</strong></p>
+            </li>
+            <li class="total">
+              <p>Total: <strong>{{format-currency this.cart.total}}</strong></p>
+            </li>
+          </ul>
+        </ul>
+      </div>
+    </div>
+  </div>
+{{/if}}
