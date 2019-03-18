@@ -7,14 +7,9 @@
         <h3 class="modal-heading">Add New Author For Book</h3>
 
         <div class="modal-content">
-          <div class="field">
-            <label>First Name:</label>
-            {{input type="text" placeholder="First Name" value=author.first}}
-          </div>
-          <div class="field">
-            <label>Last Name:</label>
-            {{input type="text" placeholder="Last Name" value=author.last}}
-          </div>
+          {{input-field type="text" label="First Name" value=this.first onchange=(action (mut this.first))}}
+
+          {{input-field type="text" label="Last Name" value=this.last onchange=(action (mut this.last))}}
         </div>
 
         <div class="modal-footer">

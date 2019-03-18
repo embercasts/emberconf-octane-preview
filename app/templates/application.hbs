@@ -1,7 +1,11 @@
 <div class="app">
   {{nav-bar class="main-nav" tagName="nav"}}
 
-  <main class="app-content">{{outlet}}</main>
+  <main class="app-content">
+    {{outlet}}
+
+    <ShoppingCart />
+  </main>
 </div>
 
 
