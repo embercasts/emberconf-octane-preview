@@ -13,6 +13,15 @@
   box-shadow: none;
 }
 
+.review {
+  &.red {
+    background: rgba(255, 0, 0, 0.2);
+  }
+  &.green {
+    background: rgba(0, 250, 0, 0.2);
+  }
+}
+
 
 button.btn-back {
   padding: 0;
