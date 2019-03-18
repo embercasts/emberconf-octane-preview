@@ -2,8 +2,8 @@ import Controller from '@ember/controller';
 
 export default Controller.extend({
   actions: {
-    saveAuthor() {
-      let author = this.store.createRecord('author', this.model);
+    saveAuthor(values) {
+      let author = this.store.createRecord('author', values);
 
       author.save()
         .then(() => {
