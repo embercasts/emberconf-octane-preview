@@ -1,29 +1,21 @@
 import { inject as service } from '@ember/service';
-import Component from '@ember/component';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
+import { action } from '@ember/object';
 
-export default Component.extend({
-  store: service('store'),
+export default class NewAuthorModal extends Component {
+  @service store
+  author = { first: '', last: '' }
+  @tracked showModal = false
 
-  init() {
-    this._super(...arguments);
+  @action
+  async save(ev) {
+    ev.preventDefault();
 
-    this.set('author', {
-      first: '',
-      last: ''
-    });
-  },
+    let author = this.store.createRecord('author', this.author);
 
-  actions: {
-    save(ev) {
-      ev.preventDefault();
-
-      let author = this.get('store').createRecord('author', this.author);
-
-      author.save().then(() => {
-        this.set('showModal', false);
-
-        this.onsave(author);
-      });
-    }
+    await author.save()
+    this.showModal = false;
+    if (this.args.onsave) { this.args.onsave(author); }
   }
-});
+}

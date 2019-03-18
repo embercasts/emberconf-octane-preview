@@ -1,6 +1,7 @@
 <button
   class="btn-cart"
   {{action (mut this.isOpen) true}}
+  {{did-insert this.bounce}}
   {{did-update this.bounce this.cart.numberOfItems}}
   {{did-update this.brighten this.cart.numberOfItems}}
 >
@@ -12,7 +13,9 @@
 </button>
 
 {{#if this.isOpen}}
-  <div class="slide-out-bg"></div>
+  <div
+
+  class="slide-out-bg"></div>
   <div class="slide-out">
     <div class="slide-out-card">
       <button class="btn-back" {{action (mut this.isOpen) false}}>

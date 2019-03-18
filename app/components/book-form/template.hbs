@@ -26,7 +26,7 @@
 
   <div class="field">
     <label>Don't See Your Author?</label>
-    {{new-author-modal onsave=(action (mut author))}}
+    <NewAuthorModal @onsave={{action (mut author)}} />
   </div>
 
   <div class="form-footer">
