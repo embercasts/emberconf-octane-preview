@@ -6,4 +6,5 @@ export default Factory.extend({
   isbn: () => faker.random.alphaNumeric(15),
   publishDate: () => faker.date.past().toISOString(),
   username: () => faker.internet.userName(),
+  price: () => parseFloat(faker.commerce.price(2.45, 43.25)),
 });
