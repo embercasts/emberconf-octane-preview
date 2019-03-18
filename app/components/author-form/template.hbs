@@ -1,7 +1,7 @@
 <form {{action "submitChanges" on="submit"}}>
   {{input-field type="text" label="First Name" value=first onchange=(action (mut first))}}
 
-  {{input-field type="text" label="Last Name" value=first onchange=(action (mut last))}}
+  {{input-field type="text" label="Last Name" value=last onchange=(action (mut last))}}
 
   <div class="form-footer">
     <button type="submit" class="btn-submit">save</button>
