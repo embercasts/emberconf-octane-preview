@@ -1,32 +1,22 @@
-<form {{action "submitChanges" on="submit"}}>
-  <div class="field">
-    <label>Title:</label>
-    {{input type="text" placeholder="Title" value=title}}
-  </div>
+<form {{action this.submitChanges on="submit"}}>
+  <InputField @type="text" @label="Title" @value={{this.title}} @onchange={{action (mut this.title)}} />
 
-  <div class="field">
-    <label>ISBN:</label>
-    {{input type="text" placeholder="ISBN" value=isbn}}
-  </div>
+  <InputField @type="text" @label="ISBN" @value={{this.isbn}} @onchange={{action (mut this.isbn)}} />
 
-  <div class="field">
-    <label>Publish Date:</label>
-    {{input type="date" placeholder="Publish Date" value=publishDate}}
-  </div>
+  <InputField @type="date" @label="Publish Date" @value={{this.publishDate}} @onchange={{action (mut this.publishDate)}} />
 
   <div class="field">
     <label>Author:</label>
     <p class="control">
-      {{#ui-select label="Select Author" value=author options=authors onchange=(action "changeAuthor") as |authorOption|}}
+      <UiSelect @label="Select Author" @value={{this.author}} @options={{@authors}} @onchange={{action this.changeAuthor}} as |authorOption| >
         {{authorOption.last}}, {{authorOption.first}}
-      {{/ui-select}}
-
+      </UiSelect>
     </p>
   </div>
 
   <div class="field">
     <label>Don't See Your Author?</label>
-    <NewAuthorModal @onsave={{action (mut author)}} />
+    <NewAuthorModal @onsave={{action (mut this.author)}} />
   </div>
 
   <div class="form-footer">

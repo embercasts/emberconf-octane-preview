@@ -12,7 +12,7 @@
     </div>
 
     <div class="slide-out-content">
-      {{book-form book=model.book authors=model.authors onsubmit=(action "saveBook")}}
+      <BookForm @book={{this.model.book}} @authors={{this.model.authors}} @onsubmit={{action this.saveBook}} />
     </div>
   </div>
 </div>

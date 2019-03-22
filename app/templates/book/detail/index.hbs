@@ -1,17 +1,17 @@
 <div class="slide-out-content">
   <div class="title">
-    <h3>{{model.ratings.length}} Ratings</h3>
+    <h3>{{this.model.ratings.length}} Ratings</h3>
 
     <div class="actions">
-      {{#link-to "book.detail.create-rating" model.id class="btn-secondary btn-add btn"}}
+      {{#link-to "book.detail.create-rating" this.model.id class="btn-secondary btn-add btn"}}
         Add your review
       {{/link-to}}
     </div>
   </div>
 
   <ul class="review-list">
-    {{#each model.ratings as |rating|}}
-      {{book-rating rating=rating}}
+    {{#each this.model.ratings as |rating|}}
+      <BookRating @rating={{rating}} />
     {{/each}}
   </ul>
 </div>

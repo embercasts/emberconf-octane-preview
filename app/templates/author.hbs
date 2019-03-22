@@ -13,12 +13,11 @@
 
   <ul class="collection">
     {{#each this.model as |author|}}
-      {{!-- {{ui/author-list-item first=author.first}} --}}
-      {{!-- <Ui::AuthorListItem @first={{author.first}} /> --}}
       <AuthorListItem
         data-test-author={{author.id}}
         @first={{author.first}}
         @last={{author.last}}
+        @authorId={{author.id}}
         @tagName="li" />
     {{/each}}
   </ul>

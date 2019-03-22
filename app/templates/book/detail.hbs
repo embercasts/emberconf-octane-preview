@@ -7,10 +7,10 @@
 
     <div class="slide-out-heading">
       <div class="title">
-        <h3>{{model.title}}</h3>
+        <h3>{{this.model.title}}</h3>
 
         <div class="actions">
-          {{#link-to "book.edit" model.id class="btn-pop"}}edit{{/link-to}}
+          {{#link-to "book.edit" this.model.id class="btn-pop"}}edit{{/link-to}}
           <button class="btn-recessed" type="button" {{action this.addToCart}}>Add To Cart</button>
         </div>
       </div>
@@ -19,29 +19,29 @@
         <p>
           <strong>Author:</strong>
 
-          {{#link-to "author.detail" model.author.id}}
-            {{model.author.last}}, {{model.author.first}}
+          {{#link-to "author.detail" this.model.author.id}}
+            {{this.model.author.last}}, {{this.model.author.first}}
           {{/link-to}}
         </p>
         <p>
           <strong>Publish Date:</strong>
 
-          {{moment-format model.publishDate "MMMM Do YYYY"}}
+          {{moment-format this.model.publishDate "MMMM Do YYYY"}}
         </p>
         <p>
           <strong>ISBN:</strong>
 
-          {{model.isbn}}
+          {{this.model.isbn}}
         </p>
         <p>
           <strong>Added By:</strong>
 
-          {{model.username}}
+          {{this.model.username}}
         </p>
         <p>
           <strong>Average Rating:</strong>
 
-          {{round-number model.averageRating}}
+          {{round-number this.model.averageRating}}
         </p>
       </div>
     </div>

@@ -1,6 +1,6 @@
 <div class="panel-heading">
   <div class="search">
-    {{input type="text" placeholder="Search by Title or ISBN" value=search}}
+    {{input type="text" placeholder="Search by Title or ISBN" value=this.search}}
   </div>
 
   {{#link-to "book.create" class="btn-new"}}
@@ -12,7 +12,7 @@
   <h3 class="panel-title">Books</h3>
 
   <ul class="collection">
-    {{#each model as |book|}}
+    {{#each this.model as |book|}}
       <li>
         {{#link-to "book.detail" book.id}}
           <span class="book-title">{{book.title}}</span>
