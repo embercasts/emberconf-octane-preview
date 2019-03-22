@@ -1,11 +1,13 @@
-<h1 class="logo">
-  {{#link-to "index"}}
-    <img src="/logo.svg" alt="Bookstore">
-    <span class="sr-only">Bookstore</span>
-  {{/link-to}}
-</h1>
+<nav class="main-nav" ...attributes>
+  <h1 class="logo">
+    {{#link-to "index"}}
+      <img src="/logo.svg" alt="Bookstore">
+      <span class="sr-only">Bookstore</span>
+    {{/link-to}}
+  </h1>
 
-<ul>
-  <li>{{#link-to "author"}}Authors{{/link-to}}</li>
-  <li>{{#link-to "book"}}Books{{/link-to}}</li>
-</ul>
+  <ul>
+    <li>{{#link-to "author"}}Authors{{/link-to}}</li>
+    <li>{{#link-to "book"}}Books{{/link-to}}</li>
+  </ul>
+</nav>
