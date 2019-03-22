@@ -1,4 +1,6 @@
-<div class="details">
-  <p class="review-user">{{@rating.username}}</p>
-  <p class="review-time">{{@rating.value}}/10</p>
-</div>
+<li class="review {{if (gte @rating.value 8) "green"}} {{if (lte @rating.value 3) "red"}}">
+  <div class="details">
+    <p class="review-user">{{@rating.username}}</p>
+    <p class="review-time">{{@rating.value}}/10</p>
+  </div>
+</li>

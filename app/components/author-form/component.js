@@ -1,22 +1,23 @@
-import Component from '@ember/component';
-import { get } from '@ember/object';
+import Component from '@component/component';
+import { get, action } from '@ember/object';
+import { tracked } from '@ember/tracking';
 
-export default Component.extend({
-  didReceiveAttrs() {
-    this._super(...arguments);
+export default class AuthorForm extends Component {
+  @tracked first
+  @tracked last
 
-    this.setProperties({
-      first: get(this.author, 'first'),
-      last: get(this.author, 'last')
-    });
-  },
+  constructor() {
+    super(...arguments);
 
-  actions: {
-    submitChanges() {
-      this.onsubmit({
-        first: this.get('first'),
-        last: this.get('last')
-      });
-    }
+    this.first = get(this.args.author, 'first');
+    this.last = get(this.args.author, 'last');
   }
-});
+
+  @action
+  submitChanges() {
+    this.args.onsubmit({
+      first: this.first,
+      last: this.last,
+    });
+  }
+}

@@ -1,6 +1,6 @@
 import Route from '@ember/routing/route';
 
-export default Route.extend({
+export default class AuthorCreateRoute extends Route {
   model() {
     return {
       first: '',
@@ -8,4 +8,4 @@ export default Route.extend({
       username: ''
     };
   }
-});
+}

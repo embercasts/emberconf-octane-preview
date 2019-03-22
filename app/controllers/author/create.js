@@ -1,14 +1,14 @@
 import Controller from '@ember/controller';
+import { action } from '@ember/object';
 
-export default Controller.extend({
-  actions: {
-    saveAuthor(values) {
-      let author = this.store.createRecord('author', values);
+export default class AuthorCreateController extends Controller {
+  @action
+  saveAuthor(values) {
+    let author = this.store.createRecord('author', values);
 
-      author.save()
-        .then(() => {
-          this.transitionToRoute('author');
-        });
-    }
+    author.save()
+      .then(() => {
+        this.transitionToRoute('author');
+      });
   }
-});
+}

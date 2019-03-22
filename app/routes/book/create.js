@@ -1,6 +1,6 @@
 import Route from '@ember/routing/route';
 
-export default Route.extend({
+export default class BookCreateRoute extends Route {
   model() {
     return this.store.findAll('author')
       .then(authors => {
@@ -15,4 +15,4 @@ export default Route.extend({
         }
       });
   }
-});
+}
